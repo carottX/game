@@ -2,6 +2,11 @@ import time
 import random
 import os
 from config import *
+import sys
+
+def clear_screen():
+    if 'linux' in sys.platform.lower(): os.system('clear')
+    else: os.system('clr')
 
 class horse:
     def __init__(self,name):
@@ -39,7 +44,7 @@ def horse_game(play_num):
     players = []
     for i in range(play_num): players.append(horse(str(i+1)))
     while True:
-        os.system('clear')
+        clear_screen()
         ARRIVE = []
         for player in players: 
             if  player.arrives(): ARRIVE.append(player.name)
